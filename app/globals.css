@@ -278,6 +278,15 @@ h1, h2, h3 { line-height: 1.1; }
 .field.full { grid-column: 1 / -1; }
 .script { background: var(--d); color: #fff; border-radius: 16px; padding: 22px; font-size: 16px; line-height: 1.6; white-space: pre-wrap; }
 .algo { display: grid; gap: 18px; }
+.algo-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 32px; align-items: start; margin-top: 32px; }
+.scheme { display: block; border-radius: 22px; overflow: hidden; background: #fff; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35); transition: transform 0.25s; }
+.scheme:hover { transform: translateY(-3px); }
+.scheme img { width: 100%; height: auto; }
+.algo-side { position: sticky; top: 100px; }
+@media (max-width: 900px) {
+  .algo-layout { grid-template-columns: 1fr; }
+  .algo-side { position: static; }
+}
 .algo-node { border-radius: 20px; padding: 26px; background: var(--s); }
 .dark .algo-node { background: var(--d2); }
 .algo-node h3 { font-size: 24px; margin: 6px 0 16px; }

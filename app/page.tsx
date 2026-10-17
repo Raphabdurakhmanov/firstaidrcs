@@ -105,19 +105,21 @@ export default async function Home() {
       </section>
 
       <section className="section dark">
-        <div className="wrap grid c2" style={{ alignItems: "start", gap: 50 }}>
-          <div>
-            <span className="eyebrow">
-              <i />
-              Action sequence
-            </span>
-            <h2 className="h2">{t.algorithmTitle}</h2>
-            <p className="lead">{t.algorithmText}</p>
-            <a href="/media/basics/scheme.webp" target="_blank" rel="noreferrer">
-              <img src="/media/basics/scheme.webp" alt={t.algorithmTitle} width={1439} height={1093} style={{ borderRadius: 18, marginTop: 24, background: "#fff" }} loading="lazy" />
+        <div className="wrap">
+          <span className="eyebrow">
+            <i />
+            Action sequence
+          </span>
+          <h2 className="h2">{t.algorithmTitle}</h2>
+          <p className="lead" style={{ maxWidth: 640 }}>{t.algorithmText}</p>
+          <div className="algo-layout">
+            <a className="scheme" href="/media/basics/scheme.webp" target="_blank" rel="noreferrer">
+              <img src="/media/basics/scheme.webp" alt={t.algorithmTitle} loading="lazy" />
             </a>
+            <div className="algo-side">
+              <Widget id="algorithm" lang={lang} bare />
+            </div>
           </div>
-          <Widget id="algorithm" lang={lang} bare />
         </div>
       </section>
 
