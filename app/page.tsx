@@ -113,7 +113,9 @@ export default async function Home() {
             </span>
             <h2 className="h2">{t.algorithmTitle}</h2>
             <p className="lead">{t.algorithmText}</p>
-            <img src="/media/basics/1.webp" alt="" style={{ borderRadius: 18, marginTop: 24, background: "#fff" }} loading="lazy" />
+            <a href="/media/basics/scheme.webp" target="_blank" rel="noreferrer">
+              <img src="/media/basics/scheme.webp" alt={t.algorithmTitle} width={1439} height={1093} style={{ borderRadius: 18, marginTop: 24, background: "#fff" }} loading="lazy" />
+            </a>
           </div>
           <Widget id="algorithm" lang={lang} bare />
         </div>

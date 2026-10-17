@@ -17,13 +17,16 @@ export const lifeTopics: Topic[] = [
       "Birinchi yordam nima, uning maqsadlari va har qanday yordam boshlanadigan toʻrt tamoyil.",
     ),
     cover: unsplash(PHOTOS.basics),
-    gallery: galLead("basics", l("Принципы оказания первой помощи: осмотр места, первичный осмотр, вызов скорой и помощь по ситуации.", "Principles in action: scene check, primary survey, calling for help and care that fits the situation.", "Amalda tamoyillar: joyni koʻrish, birlamchi koʻrik, tez yordamni chaqirish va vaziyatga mos yordam."), [
-      l(
-        "Без кислорода мозг страдает уже через 4–6 минут, поэтому важна каждая минута.",
-        "Without oxygen the brain is damaged within 4–6 minutes, so every minute counts.",
-        "Kislorodsiz miya 4–6 daqiqada zararlanadi, shuning uchun har bir daqiqa muhim.",
-      ),
-    ]),
+    gallery: [
+      { src: "/media/basics/scheme.webp", caption: l("Принципы оказания первой помощи: осмотр места, первичный осмотр, вызов скорой и помощь по ситуации.", "Principles in action: scene check, primary survey, calling for help and care that fits the situation.", "Amalda tamoyillar: joyni koʻrish, birlamchi koʻrik, tez yordamni chaqirish va vaziyatga mos yordam.") },
+      ...gal("basics", [
+        l(
+          "Без кислорода мозг страдает уже через 4–6 минут, поэтому важна каждая минута.",
+          "Without oxygen the brain is damaged within 4–6 minutes, so every minute counts.",
+          "Kislorodsiz miya 4–6 daqiqada zararlanadi, shuning uchun har bir daqiqa muhim.",
+        ),
+      ]),
+    ],
     signs: [
       l("Цели: сохранить жизнь пострадавшего.", "Goals: preserve life.", "Maqsadlar: jabrlanuvchining hayotini saqlab qolish."),
       l("Не допустить ухудшения и новых травм.", "Prevent the condition from getting worse and further injury.", "Ahvol yomonlashishi va yangi jarohatlarning oldini olish."),
