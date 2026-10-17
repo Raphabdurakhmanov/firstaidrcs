@@ -3,7 +3,6 @@ import { getDict } from "@/lib/i18n/server";
 import { getNews, getProgress, getSession, getTopics } from "@/lib/data";
 import { CATEGORIES } from "@/lib/content";
 import { totalQuestions } from "@/lib/quiz";
-import { supabaseConfigured } from "@/lib/supabase/env";
 import TopicCard from "@/components/TopicCard";
 import Widget from "@/components/Widget";
 import NewsCard from "@/components/NewsCard";
@@ -217,10 +216,6 @@ export default async function Home() {
               {session ? (
                 <Link href="/cabinet" className="btn ghost">
                   {t.cabinet}
-                </Link>
-              ) : supabaseConfigured() ? (
-                <Link href="/login" className="btn ghost">
-                  {t.login}
                 </Link>
               ) : null}
             </div>

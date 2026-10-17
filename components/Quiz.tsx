@@ -8,8 +8,8 @@ import { buildExam, buildTopicQuiz, EXAM_PASS, EXAM_SIZE, type PreparedQuestion 
 import type { Lang, Topic } from "@/lib/types";
 
 type Props =
-  | { mode: "exam"; topics: Topic[]; lang: Lang; loggedIn: boolean; authEnabled: boolean }
-  | { mode: "topic"; topic: Topic; lang: Lang; loggedIn: boolean; authEnabled: boolean };
+  | { mode: "exam"; topics: Topic[]; lang: Lang; loggedIn: boolean }
+  | { mode: "topic"; topic: Topic; lang: Lang; loggedIn: boolean };
 
 const LETTERS = ["A", "B", "C", "D"];
 
@@ -71,7 +71,6 @@ export default function Quiz(props: Props) {
         <h3 style={{ margin: 0 }}>{t.quiz.result}</h3>
         <p className="muted">{passed ? t.quiz.passed : t.quiz.failed}</p>
         {saved && <p className="small" style={{ color: "var(--ok)" }}>✓ {t.quiz.saved}</p>}
-        {!loggedIn && props.authEnabled && <p className="small muted">{t.topic.loginToSave}</p>}
         {mistakes.length > 0 && (
           <details className="review" open={mistakes.length <= 3}>
             <summary style={{ cursor: "pointer", fontWeight: 800, padding: "10px 0" }}>

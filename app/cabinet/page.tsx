@@ -13,7 +13,7 @@ export default async function CabinetPage({ searchParams }: { searchParams: Prom
   const { saved } = await searchParams;
   const { lang, t } = await getDict();
   const session = await getSession();
-  if (!session) redirect("/login?next=/cabinet");
+  if (!session) redirect("/");
   const { user, profile } = session;
   const [topics, studied, attempts] = await Promise.all([getTopics(), getProgress(user.id), getAttempts(user.id)]);
   const s = summarize(topics, studied, attempts);

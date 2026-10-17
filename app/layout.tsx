@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { getDict } from "@/lib/i18n/server";
 import { getSession, isStaff } from "@/lib/data";
-import { supabaseConfigured } from "@/lib/supabase/env";
 import TopBar from "@/components/TopBar";
 import Link from "next/link";
 
@@ -40,7 +39,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
       </head>
       <body>
-        <TopBar lang={lang} user={user} authEnabled={supabaseConfigured()} />
+        <TopBar lang={lang} user={user} />
         <main>{children}</main>
         <footer className="site-footer">
           <div className="wrap">
@@ -58,6 +57,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 <Link href="/exam">{t.nav.exam}</Link>
                 <Link href="/news">{t.nav.news}</Link>
                 <Link href="/about">{t.nav.about}</Link>
+                <Link href="/admin" style={{ opacity: 0.5 }}>{t.admin}</Link>
               </div>
               <p>{t.disclaimer}</p>
             </div>

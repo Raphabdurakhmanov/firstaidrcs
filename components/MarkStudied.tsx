@@ -1,22 +1,15 @@
 "use client";
-import Link from "next/link";
 import { useState, useTransition } from "react";
 import { setStudied } from "@/app/actions";
 import { DICTS } from "@/lib/i18n/dict";
 import type { Lang } from "@/lib/types";
 
-export default function MarkStudied({ slug, lang, initial, loggedIn, authEnabled }: { slug: string; lang: Lang; initial: boolean; loggedIn: boolean; authEnabled: boolean }) {
+export default function MarkStudied({ slug, lang, initial, loggedIn }: { slug: string; lang: Lang; initial: boolean; loggedIn: boolean }) {
   const t = DICTS[lang].topic;
   const [done, setDone] = useState(initial);
   const [pending, start] = useTransition();
 
-  if (!loggedIn) {
-    return authEnabled ? (
-      <Link href={`/login?next=/topics/${slug}`} className="btn ghost">
-        {t.loginToSave}
-      </Link>
-    ) : null;
-  }
+  if (!loggedIn) return null;
 
   return (
     <button

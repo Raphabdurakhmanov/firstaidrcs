@@ -7,7 +7,7 @@ import { LANGS, type Lang } from "@/lib/types";
 
 type User = { name: string; avatar: string | null; staff: boolean } | null;
 
-export default function TopBar({ lang, user, authEnabled }: { lang: Lang; user: User; authEnabled: boolean }) {
+export default function TopBar({ lang, user }: { lang: Lang; user: User }) {
   const t = DICTS[lang];
   const router = useRouter();
   const path = usePathname();
@@ -61,12 +61,8 @@ export default function TopBar({ lang, user, authEnabled }: { lang: Lang; user: 
             {t.nav.join}
           </Link>
           {user ? (
-            <Link href="/cabinet" className="avatar" title={user.name}>
+            <Link href={user.staff ? "/admin" : "/cabinet"} className="avatar" title={user.name}>
               {user.avatar ? <img src={user.avatar} alt="" /> : (user.name[0] ?? "?").toUpperCase()}
-            </Link>
-          ) : authEnabled ? (
-            <Link href="/login" className="btn ghost small hide-sm">
-              {t.login}
             </Link>
           ) : null}
           <button className="menu-btn" aria-label={t.menu} aria-expanded={open} onClick={() => setOpen((v) => !v)}>
@@ -84,7 +80,7 @@ export default function TopBar({ lang, user, authEnabled }: { lang: Lang; user: 
             {label}
           </Link>
         ))}
-        {user ? <Link href="/cabinet">{t.cabinet}</Link> : authEnabled ? <Link href="/login">{t.login}</Link> : null}
+        {user && <Link href="/cabinet">{t.cabinet}</Link>}
         {user?.staff && <Link href="/admin">{t.admin}</Link>}
       </nav>
     </header>

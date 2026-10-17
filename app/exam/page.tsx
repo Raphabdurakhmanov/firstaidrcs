@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getDict } from "@/lib/i18n/server";
 import { getSession, getTopics } from "@/lib/data";
 import { totalQuestions } from "@/lib/quiz";
 import Quiz from "@/components/Quiz";
-import { supabaseConfigured } from "@/lib/supabase/env";
 
 export const metadata: Metadata = { title: "Экзамен" };
 
@@ -27,16 +25,8 @@ export default async function ExamPage() {
               {t.quiz.bank} · {topics.length} {t.topicsCount}
             </div>
           </div>
-          {!session && supabaseConfigured() && (
-            <p className="small muted" style={{ marginTop: 20 }}>
-              <Link href="/login?next=/exam" className="link">
-                {t.login}
-              </Link>{" "}
-              — {t.topic.loginToSave.toLowerCase()}
-            </p>
-          )}
         </div>
-        <Quiz mode="exam" topics={topics} lang={lang} loggedIn={Boolean(session)} authEnabled={supabaseConfigured()} />
+        <Quiz mode="exam" topics={topics} lang={lang} loggedIn={Boolean(session)} />
       </div>
     </section>
   );

@@ -2,7 +2,7 @@
 
 Портал первой помощи для волонтёров Красного Полумесяца Узбекистана. RU / EN / UZ.
 
-Стек: Next.js 15, Supabase (база, вход через Google, картинки), Vercel.
+Стек: Next.js 15, Supabase (база, вход для админов, картинки), Vercel.
 
 ## Что есть
 
@@ -29,12 +29,12 @@ npm run dev
 ## Supabase
 
 1. Создать проект, в SQL Editor выполнить `supabase/schema.sql`.
-2. Authentication → Providers → Google: Client ID и Secret (можно взять клиент от CodePair, добавив новый redirect URI `https://<project>.supabase.co/auth/v1/callback`).
-3. Authentication → URL Configuration: Site URL = адрес на Vercel, Redirect URLs = `https://<site>.vercel.app/**`.
-4. Зайти на сайт через Google и сделать себя админом:
+2. Authentication → Sign In / Providers: Email включён, регистрацию новых пользователей (Allow new users to sign up) можно выключить.
+3. Authentication → Users → Add user → Create new user (email + пароль, галочка Auto Confirm).
+4. Сделать его админом (или `coordinator`):
 
 ```sql
-update public.profiles set role = 'admin' where email = 'you@gmail.com';
+update public.profiles set role = 'admin' where email = 'admin@example.com';
 ```
 
 ## Vercel

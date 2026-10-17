@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { getDict } from "@/lib/i18n/server";
 import { getProgress, getSession, getTopic, getTopics, isStaff } from "@/lib/data";
 import { CATEGORIES } from "@/lib/content";
-import { supabaseConfigured } from "@/lib/supabase/env";
 import Gallery from "@/components/Gallery";
 import Quiz from "@/components/Quiz";
 import Widget from "@/components/Widget";
@@ -135,7 +134,7 @@ export default async function TopicPage({ params }: Props) {
             {topic.quiz.length > 0 && (
               <div className="block" id="quiz">
                 <h2>{t.topic.quiz}</h2>
-                <Quiz mode="topic" topic={topic} lang={lang} loggedIn={Boolean(session)} authEnabled={supabaseConfigured()} />
+                <Quiz mode="topic" topic={topic} lang={lang} loggedIn={Boolean(session)} />
               </div>
             )}
 
@@ -172,7 +171,7 @@ export default async function TopicPage({ params }: Props) {
               <span>{t.topic.callBtn}</span>
               <b>103</b>
             </a>
-            <MarkStudied slug={topic.slug} lang={lang} initial={studied} loggedIn={Boolean(session)} authEnabled={supabaseConfigured()} />
+            <MarkStudied slug={topic.slug} lang={lang} initial={studied} loggedIn={Boolean(session)} />
             <p className="small muted">{t.disclaimer}</p>
           </aside>
         </div>

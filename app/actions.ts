@@ -63,7 +63,7 @@ export async function saveAttempt(input: { kind: "topic" | "exam"; slug: string 
 
 export async function updateProfile(formData: FormData) {
   const ctx = await requireUser();
-  if (!ctx) redirect("/login");
+  if (!ctx) redirect("/");
   const full_name = String(formData.get("full_name") ?? "").trim().slice(0, 120);
   const region = String(formData.get("region") ?? "").trim().slice(0, 120);
   await ctx.supabase.from("profiles").update({ full_name, region }).eq("id", ctx.session.user.id);

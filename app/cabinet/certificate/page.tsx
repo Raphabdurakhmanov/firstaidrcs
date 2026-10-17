@@ -9,7 +9,7 @@ import PrintButton from "@/components/PrintButton";
 export default async function CertificatePage() {
   const { lang, t } = await getDict();
   const session = await getSession();
-  if (!session) redirect("/login?next=/cabinet/certificate");
+  if (!session) redirect("/");
   const [topics, studied, attempts] = await Promise.all([getTopics(), getProgress(session.user.id), getAttempts(session.user.id)]);
   const s = summarize(topics, studied, attempts);
   if (!s.certificateReady || !s.passedExam) redirect("/cabinet");
