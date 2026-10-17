@@ -1,4 +1,4 @@
-import { l, type CategoryId, type L, type Topic } from "../types";
+import { l, type CategoryId, type L, type QuizQuestion, type Topic } from "../types";
 import { lifeTopics } from "./topics-life";
 import { injuryTopics } from "./topics-injuries";
 import { otherTopics } from "./topics-other";
@@ -32,15 +32,21 @@ export const CATEGORIES: { id: CategoryId; title: L; text: L }[] = [
   },
 ];
 
+// сложные вопросы добавляем и к темам из базы, но без дублей
+function withHard(slug: string, quiz: QuizQuestion[]) {
+  const have = new Set(quiz.map((q) => q.q.ru));
+  return [...quiz, ...(HARD_QUESTIONS[slug] ?? []).filter((q) => !have.has(q.q.ru))];
+}
+
 export const BUILTIN_TOPICS: Topic[] = [...lifeTopics, ...injuryTopics, ...otherTopics]
-  .map((t) => ({ ...t, quiz: [...t.quiz, ...(HARD_QUESTIONS[t.slug] ?? [])], source: "builtin" as const, published: true }))
+  .map((t) => ({ ...t, quiz: withHard(t.slug, t.quiz), source: "builtin" as const, published: true }))
   .sort((a, b) => a.order - b.order);
 
 // тема из базы с тем же slug перекрывает встроенную
 export function mergeTopics(dbTopics: Topic[], includeHidden = false): Topic[] {
   const map = new Map<string, Topic>();
   for (const t of BUILTIN_TOPICS) map.set(t.slug, t);
-  for (const t of dbTopics) map.set(t.slug, { ...t, source: "db" });
+  for (const t of dbTopics) map.set(t.slug, { ...t, quiz: withHard(t.slug, t.quiz), source: "db" });
   const all = [...map.values()].sort((a, b) => a.order - b.order || a.slug.localeCompare(b.slug));
   return includeHidden ? all : all.filter((t) => t.published !== false);
 }
