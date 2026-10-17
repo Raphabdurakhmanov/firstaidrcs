@@ -38,4 +38,5 @@ export const PHOTOS = {
   carCrash: "1713623311317-d3c43a4be4cf",
   rubble: "1650638727175-347f9f3a83c8",
   kit: "1624638760852-8ede1666ab07",
+  aed: "1617257484989-9f8ab411c362",
 } as const;

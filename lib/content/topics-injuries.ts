@@ -7,7 +7,7 @@ export const injuryTopics: Topic[] = [
     slug: "wounds",
     cat: "injuries",
     icon: "▰",
-    order: 11,
+    order: 12,
     core: true,
     title: l("Раны и повязки", "Wounds and dressings", "Yaralar va bogʻlamlar"),
     summary: l(
@@ -108,7 +108,7 @@ export const injuryTopics: Topic[] = [
     slug: "foreign-object",
     cat: "injuries",
     icon: "✕",
-    order: 12,
+    order: 13,
     core: false,
     title: l("Предмет в ране и ампутация", "Embedded objects and amputation", "Yaradagi jism va amputatsiya"),
     summary: l(
@@ -191,7 +191,7 @@ export const injuryTopics: Topic[] = [
     slug: "chest-abdomen",
     cat: "injuries",
     icon: "◫",
-    order: 13,
+    order: 14,
     core: false,
     title: l("Ранения груди и живота", "Chest and abdominal wounds", "Koʻkrak va qorin jarohatlari"),
     summary: l(
@@ -286,7 +286,7 @@ export const injuryTopics: Topic[] = [
     slug: "nosebleed",
     cat: "injuries",
     icon: "◒",
-    order: 14,
+    order: 15,
     core: false,
     title: l("Носовое кровотечение", "Nosebleed", "Burun qonashi"),
     summary: l("Правильная поза и сколько держать нос зажатым.", "The right position and how long to pinch the nose.", "Toʻgʻri holat va burunni qancha vaqt qisib turish kerak."),
@@ -347,7 +347,7 @@ export const injuryTopics: Topic[] = [
     slug: "burns",
     cat: "injuries",
     icon: "♨",
-    order: 15,
+    order: 16,
     core: true,
     title: l("Ожоги", "Burns", "Kuyishlar"),
     summary: l(
@@ -440,7 +440,7 @@ export const injuryTopics: Topic[] = [
     slug: "electric",
     cat: "injuries",
     icon: "ϟ",
-    order: 16,
+    order: 17,
     core: false,
     title: l("Электротравма", "Electrical injury", "Elektr toki jarohati"),
     summary: l(
@@ -538,7 +538,7 @@ export const injuryTopics: Topic[] = [
     slug: "fractures",
     cat: "injuries",
     icon: "⌇",
-    order: 17,
+    order: 18,
     core: true,
     title: l("Переломы, вывихи и шины", "Fractures, dislocations and splints", "Suyak sinishi, chiqishi va shinalar"),
     summary: l(
@@ -634,7 +634,7 @@ export const injuryTopics: Topic[] = [
     slug: "head-spine",
     cat: "injuries",
     icon: "⊙",
-    order: 18,
+    order: 19,
     core: true,
     title: l("Травмы головы и позвоночника", "Head and spine injuries", "Bosh va umurtqa jarohatlari"),
     summary: l(
@@ -728,7 +728,7 @@ export const injuryTopics: Topic[] = [
     slug: "crush",
     cat: "injuries",
     icon: "▤",
-    order: 19,
+    order: 20,
     core: false,
     title: l("Синдром длительного сдавления", "Crush syndrome", "Uzoq ezilish sindromi"),
     summary: l(

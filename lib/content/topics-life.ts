@@ -629,10 +629,150 @@ export const lifeTopics: Topic[] = [
     ],
   },
   {
+    slug: "aed",
+    cat: "life",
+    icon: "⚡",
+    order: 6,
+    core: false,
+    title: l("Автоматический дефибриллятор (АНД)", "Automated external defibrillator (AED)", "Avtomatik tashqi defibrillyator (AED)"),
+    summary: l(
+      "Как найти и включить АНД, куда клеить электроды и как работать с ним вместе с СЛР.",
+      "How to find and switch on an AED, where to put the pads and how to use it together with CPR.",
+      "AEDni qanday topish va yoqish, elektrodlarni qayerga yopishtirish va uni YOʻR bilan birga qanday ishlatish.",
+    ),
+    cover: unsplash(PHOTOS.aed),
+    signsTitle: l("Когда нужен АНД", "When to use an AED", "AED qachon kerak"),
+    signs: [
+      l("Человек не отвечает на голос и прикосновение.", "The person does not respond to voice or touch.", "Odam ovoz va tegishga javob bermaydi."),
+      l("Не дышит или дышит ненормально (редкие хрипящие вдохи).", "Not breathing or not breathing normally (occasional gasps).", "Nafas olmayapti yoki normal emas (kamdan-kam xirillash)."),
+      l(
+        "АНД висит в аэропортах, торговых центрах, спортзалах, метро — ищите зелёный знак с сердцем и молнией.",
+        "AEDs are found in airports, malls, gyms and metro stations — look for the green sign with a heart and a lightning bolt.",
+        "AED aeroport, savdo markazlari, sport zallari va metroda boʻladi — yurak va chaqmoqli yashil belgini qidiring.",
+      ),
+    ],
+    steps: [
+      l(
+        "Позвоните 103 на громкой связи и сразу начните СЛР. Попросите кого-то конкретного принести АНД: «Вы, в синей куртке, принесите дефибриллятор!»",
+        "Call 103 on speakerphone and start CPR straight away. Ask a specific person to bring an AED: “You in the blue jacket, bring the defibrillator!”",
+        "Karnay orqali 103 ga qoʻngʻiroq qiling va darhol YOʻR boshlang. Aniq bir odamdan AED olib kelishni soʻrang: «Siz, koʻk kurtkadagi, defibrillyatorni olib keling!»",
+      ),
+      l(
+        "Откройте крышку или нажмите кнопку включения. Дальше аппарат сам подсказывает голосом, что делать.",
+        "Open the lid or press the power button. From then on the device tells you what to do by voice.",
+        "Qopqoqni oching yoki yoqish tugmasini bosing. Keyin apparat nima qilishni oʻzi ovoz bilan aytadi.",
+      ),
+      l(
+        "Освободите грудь от одежды. Если кожа мокрая — вытрите, если сильно волосатая — быстро сбрейте бритвой из набора.",
+        "Bare the chest. Wipe it if wet; if it is very hairy, shave the pad areas quickly with the razor from the kit.",
+        "Koʻkrakni kiyimdan ochib qoʻying. Teri hoʻl boʻlsa — arting, juda tukli boʻlsa — toʻplamdagi ustara bilan tez qirib tashlang.",
+      ),
+      l(
+        "Наклейте электроды как на картинке: один под правой ключицей, второй слева сбоку, ниже подмышки. Если можно, пусть второй человек продолжает СЛР, пока вы клеите.",
+        "Stick the pads as shown on them: one below the right collarbone, the other on the left side below the armpit. If possible, let someone keep doing CPR while you do this.",
+        "Elektrodlarni rasmdagidek yopishtiring: biri oʻng oʻmrov suyagi ostiga, ikkinchisi chap yonga, qoʻltiq ostiga. Imkon boʻlsa, bu vaqtda boshqa odam YOʻRni davom ettirsin.",
+      ),
+      l(
+        "Детям до 8 лет — детские электроды или детский режим. Если их нет, используйте взрослые: маленькому ребёнку один электрод на центр груди, второй на спину между лопатками.",
+        "Children under 8: use child pads or child mode. If there are none, use adult pads — on a small child, one in the centre of the chest and one on the back between the shoulder blades.",
+        "8 yoshgacha bolalarga — bolalar elektrodlari yoki bolalar rejimi. Ular boʻlmasa, kattalarnikini ishlating: kichik bolaga biri koʻkrak markaziga, ikkinchisi kuraklar orasiga.",
+      ),
+      l(
+        "Когда АНД анализирует ритм — никто не касается пострадавшего.",
+        "While the AED analyses the rhythm, nobody touches the person.",
+        "AED ritmni tahlil qilayotganda hech kim jabrlanuvchiga tegmaydi.",
+      ),
+      l(
+        "Если разряд рекомендован — громко скажите «Все отошли!», убедитесь, что никто не касается, и нажмите кнопку разряда (полностью автоматический АНД даст разряд сам).",
+        "If a shock is advised, shout “Everyone stand clear!”, make sure nobody is touching and press the shock button (a fully automatic AED shocks by itself).",
+        "Zarb tavsiya etilsa — baland ovozda «Hamma uzoqlashsin!» deng, hech kim tegmayotganiga ishonch hosil qiling va zarb tugmasini bosing (toʻliq avtomatik AED zarbni oʻzi beradi).",
+      ),
+      l(
+        "Сразу после разряда (или если разряд не нужен) продолжайте СЛР 30:2. Через 2 минуты АНД снова проверит ритм — слушайте подсказки и не снимайте электроды до приезда скорой.",
+        "Right after the shock (or if no shock is advised) continue CPR 30:2. After 2 minutes the AED checks the rhythm again — follow the prompts and leave the pads on until the ambulance arrives.",
+        "Zarbdan keyin darhol (yoki zarb kerak boʻlmasa) YOʻRni 30:2 davom ettiring. 2 daqiqadan soʻng AED ritmni qayta tekshiradi — koʻrsatmalarga amal qiling va tez yordam kelguncha elektrodlarni olmang.",
+      ),
+    ],
+    donts: [
+      l("Не касайтесь человека во время анализа и разряда.", "Do not touch the person during analysis or the shock.", "Tahlil va zarb vaqtida odamga tegmang."),
+      l("Не прекращайте СЛР, пока ждёте АНД, — перерывы должны быть минимальными.", "Do not stop CPR while waiting for the AED — keep pauses as short as possible.", "AEDni kutayotganda YOʻRni toʻxtatmang — tanaffuslar imkon qadar qisqa boʻlsin."),
+      l(
+        "Не клейте электрод прямо на кардиостимулятор (бугорок под кожей) или на лекарственный пластырь — снимите пластырь, электрод сместите в сторону.",
+        "Do not put a pad directly over a pacemaker (a lump under the skin) or a medicine patch — remove the patch and place the pad to the side.",
+        "Elektrodni toʻgʻridan-toʻgʻri kardiostimulyator (teri ostidagi doʻmboqcha) yoki dori plastiri ustiga yopishtirmang — plastirni olib tashlang, elektrodni chetga suring.",
+      ),
+      l("Не используйте АНД, когда человек лежит в воде, — сначала перенесите его на сухое место.", "Do not use an AED while the person is lying in water — move them to a dry place first.", "Odam suvda yotganda AEDdan foydalanmang — avval quruq joyga oʻtkazing."),
+      l("Не выключайте АНД и не снимайте электроды, даже если человек начал дышать.", "Do not switch the AED off or remove the pads even if the person starts breathing.", "Odam nafas ola boshlasa ham AEDni oʻchirmang va elektrodlarni olmang."),
+    ],
+    warning: l(
+      "Бояться навредить не нужно: АНД сам анализирует ритм и не даст разряд, если он не нужен. Каждая минута без СЛР и дефибрилляции снижает шанс выжить примерно на 10%.",
+      "Do not be afraid of doing harm: the AED analyses the rhythm itself and will not shock if a shock is not needed. Every minute without CPR and defibrillation lowers the chance of survival by about 10%.",
+      "Zarar yetkazishdan qoʻrqmang: AED ritmni oʻzi tahlil qiladi va kerak boʻlmasa zarb bermaydi. YOʻR va defibrillyatsiyasiz har bir daqiqa omon qolish imkoniyatini taxminan 10% ga kamaytiradi.",
+    ),
+    quiz: [
+      {
+        q: l("Кто может пользоваться АНД?", "Who can use an AED?", "AEDdan kim foydalanishi mumkin?"),
+        a: [
+          l("Любой человек — аппарат подсказывает голосом", "Anyone — the device gives voice prompts", "Har qanday odam — apparat ovoz bilan koʻrsatma beradi"),
+          l("Только врачи", "Doctors only", "Faqat shifokorlar"),
+          l("Только бригада скорой помощи", "Only the ambulance crew", "Faqat tez yordam brigadasi"),
+          l("Только люди с сертификатом", "Only people with a certificate", "Faqat sertifikatga ega odamlar"),
+        ],
+        e: l(
+          "АНД создан для очевидцев без медицинского образования: он сам анализирует ритм и говорит, что делать.",
+          "AEDs are designed for bystanders with no medical training: the device analyses the rhythm and tells you what to do.",
+          "AED tibbiy maʼlumotsiz guvohlar uchun yaratilgan: u ritmni oʻzi tahlil qiladi va nima qilishni aytadi.",
+        ),
+      },
+      {
+        q: l("Куда клеят электроды взрослому?", "Where do the pads go on an adult?", "Kattalarga elektrodlar qayerga yopishtiriladi?"),
+        a: [
+          l("Под правую ключицу и на левый бок ниже подмышки", "Below the right collarbone and on the left side below the armpit", "Oʻng oʻmrov ostiga va chap yonga qoʻltiq ostiga"),
+          l("Оба на центр груди рядом", "Both side by side on the centre of the chest", "Ikkalasi ham koʻkrak markaziga yonma-yon"),
+          l("На оба плеча", "On both shoulders", "Ikkala yelkaga"),
+          l("На живот и спину", "On the belly and the back", "Qorin va orqaga"),
+        ],
+        e: l(
+          "Так ток проходит через сердце. Схема всегда нарисована на самих электродах.",
+          "This way the current passes through the heart. The placement is always pictured on the pads.",
+          "Shunda tok yurak orqali oʻtadi. Joylashuv sxemasi har doim elektrodlarning oʻzida chizilgan.",
+        ),
+      },
+      {
+        q: l("Что делать сразу после разряда?", "What do you do right after a shock?", "Zarbdan keyin darhol nima qilinadi?"),
+        a: [
+          l("Сразу продолжить СЛР 30:2", "Resume CPR 30:2 immediately", "Darhol YOʻRni 30:2 davom ettirish"),
+          l("Проверить пульс в течение минуты", "Check the pulse for a minute", "Bir daqiqa davomida tomir urishini tekshirish"),
+          l("Снять электроды", "Remove the pads", "Elektrodlarni olib tashlash"),
+          l("Выключить АНД", "Switch the AED off", "AEDni oʻchirish"),
+        ],
+        e: l(
+          "Сердцу после разряда нужна поддержка кровотока. АНД сам скажет, когда снова проверять ритм.",
+          "After a shock the heart needs circulation support. The AED will tell you when it checks the rhythm again.",
+          "Zarbdan keyin yurakka qon aylanishini qoʻllab-quvvatlash kerak. AED ritmni qachon qayta tekshirishini oʻzi aytadi.",
+        ),
+      },
+      {
+        q: l("АНД сказал «Разряд не рекомендован». Что дальше?", "The AED says “No shock advised”. What next?", "AED «Zarb tavsiya etilmaydi» dedi. Keyin nima?"),
+        a: [
+          l("Продолжать СЛР и слушать подсказки", "Continue CPR and follow the prompts", "YOʻRni davom ettirib, koʻrsatmalarni tinglash"),
+          l("Всё в порядке, можно прекратить помощь", "All is fine, you can stop", "Hammasi joyida, yordamni toʻxtatish mumkin"),
+          l("Нажать кнопку разряда всё равно", "Press the shock button anyway", "Baribir zarb tugmasini bosish"),
+          l("Переклеить электроды на другие места", "Move the pads to other places", "Elektrodlarni boshqa joyga koʻchirish"),
+        ],
+        e: l(
+          "Это значит, что ритм не поддаётся разряду, но сердце всё равно может не работать. Если человек не дышит нормально — продолжайте СЛР.",
+          "It means the rhythm is not shockable, but the heart may still not be pumping. If the person is not breathing normally, keep going with CPR.",
+          "Bu ritm zarbga mos emasligini bildiradi, lekin yurak baribir ishlamayotgan boʻlishi mumkin. Odam normal nafas olmasa — YOʻRni davom ettiring.",
+        ),
+      },
+    ],
+  },
+  {
     slug: "choking",
     cat: "life",
     icon: "↯",
-    order: 6,
+    order: 7,
     core: true,
     title: l("Удушье: инородное тело в дыхательных путях", "Choking", "Tiqilib qolish: nafas yoʻlidagi yot jism"),
     summary: l(
@@ -783,7 +923,7 @@ export const lifeTopics: Topic[] = [
     slug: "heart-attack",
     cat: "life",
     icon: "♡",
-    order: 7,
+    order: 8,
     core: true,
     title: l("Стенокардия и инфаркт", "Angina and heart attack", "Stenokardiya va infarkt"),
     summary: l(
@@ -890,7 +1030,7 @@ export const lifeTopics: Topic[] = [
     slug: "stroke",
     cat: "life",
     icon: "◎",
-    order: 8,
+    order: 9,
     core: false,
     widget: "fast",
     cover: unsplash(PHOTOS.elderHands),
@@ -957,7 +1097,7 @@ export const lifeTopics: Topic[] = [
     slug: "shock",
     cat: "life",
     icon: "◇",
-    order: 9,
+    order: 10,
     core: true,
     title: l("Шок", "Shock", "Shok"),
     summary: l(
@@ -1030,7 +1170,7 @@ export const lifeTopics: Topic[] = [
     slug: "bleeding",
     cat: "life",
     icon: "●",
-    order: 10,
+    order: 11,
     core: true,
     title: l("Кровотечение", "Bleeding", "Qon ketishi"),
     summary: l(

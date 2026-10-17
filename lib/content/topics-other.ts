@@ -7,7 +7,7 @@ export const otherTopics: Topic[] = [
     slug: "seizures",
     cat: "environment",
     icon: "≈",
-    order: 20,
+    order: 21,
     core: true,
     title: l("Судороги", "Seizures", "Tutqanoq"),
     summary: l(
@@ -93,7 +93,7 @@ export const otherTopics: Topic[] = [
     slug: "heat",
     cat: "environment",
     icon: "☀",
-    order: 21,
+    order: 22,
     core: false,
     title: l("Тепловой удар", "Heatstroke", "Issiq urishi"),
     summary: l(
@@ -171,7 +171,7 @@ export const otherTopics: Topic[] = [
     slug: "cold",
     cat: "environment",
     icon: "❄",
-    order: 22,
+    order: 23,
     core: false,
     title: l("Обморожение и переохлаждение", "Frostbite and hypothermia", "Sovuq urishi va sovqotish"),
     summary: l(
@@ -251,7 +251,7 @@ export const otherTopics: Topic[] = [
     slug: "poisoning",
     cat: "environment",
     icon: "⚗",
-    order: 23,
+    order: 24,
     core: true,
     title: l("Отравления", "Poisoning", "Zaharlanish"),
     summary: l(
@@ -342,7 +342,7 @@ export const otherTopics: Topic[] = [
     slug: "bites",
     cat: "environment",
     icon: "✱",
-    order: 24,
+    order: 25,
     core: false,
     title: l("Укусы змей и насекомых", "Snake and insect bites", "Ilon va hasharot chaqishi"),
     summary: l(
@@ -423,7 +423,7 @@ export const otherTopics: Topic[] = [
     slug: "moving",
     cat: "volunteer",
     icon: "⇄",
-    order: 25,
+    order: 26,
     core: false,
     title: l("Перемещение пострадавшего", "Moving a casualty", "Jabrlanuvchini koʻchirish"),
     summary: l(
@@ -505,7 +505,7 @@ export const otherTopics: Topic[] = [
     slug: "road",
     cat: "volunteer",
     icon: "⛐",
-    order: 26,
+    order: 27,
     core: false,
     title: l("Помощь при ДТП", "First aid at a road accident", "YTHda birinchi yordam"),
     summary: l(
@@ -584,7 +584,7 @@ export const otherTopics: Topic[] = [
     slug: "kit",
     cat: "volunteer",
     icon: "▣",
-    order: 27,
+    order: 28,
     core: false,
     widget: "kit",
     title: l("Аптечка первой помощи", "First aid kit", "Birinchi yordam qutichasi"),
@@ -650,7 +650,7 @@ export const otherTopics: Topic[] = [
     coverFit: "contain",
     signsTitle: l("Из чего состоит Движение", "What the Movement is made of", "Harakat nimalardan iborat"),
     stepsTitle: l("Семь основополагающих принципов", "The seven Fundamental Principles", "Yetti asosiy tamoyil"),
-    order: 28,
+    order: 29,
     core: true,
     title: l("Движение Красного Креста и Красного Полумесяца", "The Red Cross and Red Crescent Movement", "Qizil Xoch va Qizil Yarim Oy Harakati"),
     summary: l(
