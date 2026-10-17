@@ -57,6 +57,9 @@ export default function TopBar({ lang, user, authEnabled }: { lang: Lang; user: 
             <small>{t.ambulance}</small>
             <b>103</b>
           </a>
+          <Link href="/join" className="btn ghost small hide-md">
+            {t.nav.join}
+          </Link>
           {user ? (
             <Link href="/cabinet" className="avatar" title={user.name}>
               {user.avatar ? <img src={user.avatar} alt="" /> : (user.name[0] ?? "?").toUpperCase()}
@@ -73,6 +76,9 @@ export default function TopBar({ lang, user, authEnabled }: { lang: Lang; user: 
       </div>
       <nav className={`mobile-nav ${open ? "open" : ""}`}>
         <Link href="/">{t.nav.home}</Link>
+        <Link href="/join" style={{ color: "var(--r)" }}>
+          {t.nav.join}
+        </Link>
         {links.map(([href, label]) => (
           <Link key={href} href={href}>
             {label}

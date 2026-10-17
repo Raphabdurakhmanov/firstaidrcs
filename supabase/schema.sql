@@ -155,3 +155,39 @@ create policy "media delete" on storage.objects for delete using (bucket_id = 'm
 -- ---------- Первый администратор ----------
 -- Войдите на сайт через Google, затем выполните (подставьте свою почту):
 -- update public.profiles set role = 'admin' where email = 'you@gmail.com';
+
+-- ---------- Заявки волонтёров (регистрация с принятием соглашения) ----------
+create table if not exists public.volunteer_applications (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamptz not null default now(),
+  user_id uuid references auth.users on delete set null,
+  full_name text not null check (char_length(full_name) between 3 and 120),
+  phone text not null check (char_length(phone) between 9 and 20),
+  email text,
+  region text not null,
+  age_group text,
+  occupation text,
+  directions text[] not null default '{}',
+  telegram text,
+  comment text check (comment is null or char_length(comment) <= 1000),
+  lang text not null default 'ru',
+  agreement_version text not null,
+  accepted_at timestamptz not null default now(),
+  status text not null default 'new' check (status in ('new', 'contacted', 'accepted', 'rejected')),
+  staff_note text,
+  handled_by uuid references auth.users on delete set null
+);
+create index if not exists volunteer_applications_created on public.volunteer_applications (created_at desc);
+
+alter table public.volunteer_applications enable row level security;
+-- Подать заявку может любой посетитель (в том числе без входа), но только со статусом «новая».
+drop policy if exists "applications insert" on public.volunteer_applications;
+create policy "applications insert" on public.volunteer_applications for insert
+  with check (status = 'new' and staff_note is null and handled_by is null and (user_id is null or user_id = auth.uid()));
+-- Читать и обрабатывать заявки могут только координаторы и администраторы.
+drop policy if exists "applications read" on public.volunteer_applications;
+create policy "applications read" on public.volunteer_applications for select using (public.is_staff());
+drop policy if exists "applications update" on public.volunteer_applications;
+create policy "applications update" on public.volunteer_applications for update using (public.is_staff());
+drop policy if exists "applications delete" on public.volunteer_applications;
+create policy "applications delete" on public.volunteer_applications for delete using (public.is_admin());

@@ -51,7 +51,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           {t.adm.title}
         </h1>
         <AdminTabs
-          labels={{ stats: t.adm.stats, topics: t.adm.topics, news: t.adm.news, volunteers: t.adm.volunteers }}
+          labels={{ stats: t.adm.stats, topics: t.adm.topics, news: t.adm.news, volunteers: t.adm.volunteers, applications: t.adm.applications }}
           showVolunteers={true}
         />
         {children}

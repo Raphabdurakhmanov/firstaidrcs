@@ -2,11 +2,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function AdminTabs({ labels, showVolunteers }: { labels: Record<"stats" | "topics" | "news" | "volunteers", string>; showVolunteers: boolean }) {
+export default function AdminTabs({ labels, showVolunteers }: { labels: Record<"stats" | "topics" | "news" | "volunteers" | "applications", string>; showVolunteers: boolean }) {
   const path = usePathname();
   const tabs: [string, string][] = [
     ["/admin", labels.stats],
     ["/admin/topics", labels.topics],
+    ["/admin/applications", labels.applications],
     ["/admin/news", labels.news],
   ];
   if (showVolunteers) tabs.push(["/admin/volunteers", labels.volunteers]);

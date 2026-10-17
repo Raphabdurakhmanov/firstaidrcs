@@ -19,6 +19,9 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           <h1 style={{ margin: 0 }}>{t.auth.title}</h1>
           <p className="muted">{t.auth.text}</p>
           {error && <div className="callout red">{t.auth.error}</div>}
+          <a href="/join" className="link">
+            {t.nav.join} →
+          </a>
           {supabaseConfigured() ? <LoginButton lang={lang} next={next?.startsWith("/") ? next : "/cabinet"} /> : <div className="notice">{t.auth.notConfigured}</div>}
         </div>
       </div>
