@@ -9,6 +9,7 @@ import Gallery from "@/components/Gallery";
 import Quiz from "@/components/Quiz";
 import Widget from "@/components/Widget";
 import MarkStudied from "@/components/MarkStudied";
+import TopicIcon from "@/components/TopicIcon";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -54,7 +55,7 @@ export default async function TopicPage({ params }: Props) {
               )}
             </nav>
             <h1>
-              <span style={{ color: "var(--r)" }}>{topic.icon}</span> {topic.title[lang]}
+              <span style={{ color: "var(--r)" }}><TopicIcon icon={topic.icon} /></span> {topic.title[lang]}
             </h1>
             <p className="lead">{topic.summary[lang]}</p>
             <div className="row" style={{ marginTop: 20 }}>
@@ -68,7 +69,7 @@ export default async function TopicPage({ params }: Props) {
             </div>
           </div>
           <div className="topic-cover">
-            {topic.cover ? <img src={topic.cover} alt={topic.title[lang]} /> : <span className="glyph">{topic.icon}</span>}
+            {topic.cover ? <img src={topic.cover} alt={topic.title[lang]} className={topic.coverFit === "contain" ? "logo" : undefined} /> : <span className="glyph"><TopicIcon icon={topic.icon} /></span>}
           </div>
         </div>
 
@@ -76,7 +77,7 @@ export default async function TopicPage({ params }: Props) {
           <article>
             {topic.signs && topic.signs.length > 0 && (
               <div className="block">
-                <h2>{t.topic.signs}</h2>
+                <h2>{topic.signsTitle?.[lang] ?? t.topic.signs}</h2>
                 <ul className="bullets">
                   {topic.signs.map((s, i) => (
                     <li key={i}>{s[lang]}</li>
@@ -86,7 +87,7 @@ export default async function TopicPage({ params }: Props) {
             )}
 
             <div className="block">
-              <h2>{t.topic.steps}</h2>
+              <h2>{topic.stepsTitle?.[lang] ?? t.topic.steps}</h2>
               <ol className="steps">
                 {topic.steps.map((s, i) => (
                   <li key={i}>

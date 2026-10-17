@@ -36,7 +36,6 @@ const WIDGETS: WidgetId[] = ["algorithm", "call103", "cpr", "kit", "fast"];
 const emptyL = () => l("", "", "");
 const emptyQ = (): QuizQuestion => ({ q: emptyL(), a: [emptyL(), emptyL(), emptyL(), emptyL()], e: emptyL() });
 
-/** Чистка перед сохранением: пустые пункты убираем, пустые переводы заполняем русским. */
 function finalize(t: Topic): Topic {
   const fix = (x: L): L => ({ ru: x.ru.trim(), en: x.en.trim() || x.ru.trim(), uz: x.uz.trim() || x.ru.trim() });
   const list = (arr?: L[]) => (arr ?? []).filter((x) => LANGS.some((k) => x[k].trim())).map(fix);
@@ -145,7 +144,7 @@ export default function TopicEditor({
           </div>
           <div className="field">
             <label>{u.icon}</label>
-            <input value={topic.icon} maxLength={3} onChange={(e) => set("icon", e.target.value)} />
+            <input value={topic.icon} maxLength={10} onChange={(e) => set("icon", e.target.value)} placeholder="✚ / crescent" />
           </div>
           <div className="field">
             <label>{u.order}</label>

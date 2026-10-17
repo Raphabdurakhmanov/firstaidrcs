@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getDict } from "@/lib/i18n/server";
 import { getDbTopics, getTopics } from "@/lib/data";
 import { BUILTIN_TOPICS, CATEGORIES } from "@/lib/content";
+import TopicIcon from "@/components/TopicIcon";
 
 export default async function AdminTopics() {
   const { lang, t } = await getDict();
@@ -38,7 +39,7 @@ export default async function AdminTopics() {
                 <td>
                   <Link href={`/topics/${x.slug}`}>
                     <b>
-                      {x.icon} {x.title[lang]}
+                      <TopicIcon icon={x.icon} /> {x.title[lang]}
                     </b>
                   </Link>
                   <div className="row small" style={{ gap: 6, marginTop: 4 }}>
