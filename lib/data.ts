@@ -31,7 +31,6 @@ type TopicRow = { slug: string; data: Omit<Topic, "slug">; published: boolean };
 
 const rowToTopic = (r: TopicRow): Topic => ({ ...r.data, slug: r.slug, published: r.published, source: "db" });
 
-/** Пользователь и его профиль (или null для гостя). */
 export const getSession = cache(async () => {
   const supabase = await createClient();
   if (!supabase) return null;

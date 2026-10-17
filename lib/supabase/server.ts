@@ -2,7 +2,6 @@ import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import { SUPABASE_KEY, SUPABASE_URL, supabaseConfigured } from "./env";
 
-/** Серверный клиент Supabase с сессией пользователя из cookies. null — если Supabase не настроен. */
 export async function createClient() {
   if (!supabaseConfigured()) return null;
   const cookieStore = await cookies();
@@ -15,7 +14,7 @@ export async function createClient() {
         try {
           cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options));
         } catch {
-          // Вызов из серверного компонента: cookies обновит middleware.
+          // в server component нельзя ставить cookies, это ок
         }
       },
     },

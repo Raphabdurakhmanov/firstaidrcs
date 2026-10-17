@@ -12,7 +12,7 @@ export type PreparedQuestion = {
   e: L;
 };
 
-/** Перемешивание Фишера — Йетса: каждая перестановка равновероятна. */
+// fisher-yates
 export function shuffle<T>(items: readonly T[], rng: Rng = Math.random): T[] {
   const a = [...items];
   for (let i = a.length - 1; i > 0; i--) {
@@ -35,7 +35,6 @@ export function prepareQuestion(topic: Topic, question: QuizQuestion, index: num
   };
 }
 
-/** Мини-тест по одной теме: все её вопросы в случайном порядке. */
 export function buildTopicQuiz(topic: Topic, rng: Rng = Math.random): PreparedQuestion[] {
   return shuffle(
     topic.quiz.map((q, i) => prepareQuestion(topic, q, i, rng)),
@@ -43,12 +42,6 @@ export function buildTopicQuiz(topic: Topic, rng: Rng = Math.random): PreparedQu
   );
 }
 
-/**
- * Экзамен: `count` разных вопросов из всех тем.
- * Сначала берём по одному вопросу из разных тем (так охват шире),
- * и только если тем меньше, чем вопросов, добираем вторые вопросы.
- * Один и тот же вопрос дважды не попадёт.
- */
 export function buildExam(topics: Topic[], count = 15, rng: Rng = Math.random): PreparedQuestion[] {
   const pools = shuffle(
     topics.filter((t) => t.quiz.length > 0).map((t) => ({ topic: t, idx: shuffle(t.quiz.map((_, i) => i), rng) })),

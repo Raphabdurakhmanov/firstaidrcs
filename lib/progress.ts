@@ -2,7 +2,6 @@ import type { Attempt } from "./data";
 import { EXAM_PASS, EXAM_SIZE } from "./quiz";
 import type { Topic } from "./types";
 
-/** Сводка прогресса волонтёра: обязательные темы, лучший экзамен, готовность подтверждения. */
 export function summarize(topics: Topic[], studied: string[], attempts: Attempt[]) {
   const done = new Set(studied);
   const core = topics.filter((t) => t.core);

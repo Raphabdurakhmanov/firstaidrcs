@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 import { BUILTIN_TOPICS } from "../lib/content";
 import { buildExam, buildTopicQuiz, EXAM_SIZE, shuffle } from "../lib/quiz";
 
-/** Детерминированный генератор случайных чисел для воспроизводимых тестов. */
 function seeded(seed: number) {
   let s = seed;
   return () => {

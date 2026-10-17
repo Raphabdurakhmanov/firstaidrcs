@@ -4,7 +4,6 @@ import { createBrowser } from "@/lib/supabase/client";
 
 const MAX_MB = 5;
 
-/** Загрузка картинки в Supabase Storage (бакет media). Возвращает публичную ссылку. */
 export default function ImageUpload({ value, folder, onChange }: { value: string; folder: string; onChange: (url: string) => void }) {
   const input = useRef<HTMLInputElement>(null);
   const [busy, setBusy] = useState(false);

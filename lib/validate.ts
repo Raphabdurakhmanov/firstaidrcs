@@ -7,7 +7,6 @@ const isL = (v: unknown): v is L => !!v && typeof v === "object" && LANGS.every(
 const filledL = (v: unknown) => isL(v) && v.ru.trim().length > 0;
 const isLList = (v: unknown) => v === undefined || (Array.isArray(v) && v.every(isL));
 
-/** Проверка темы, пришедшей из админ-панели. Возвращает список проблем (пустой — всё в порядке). */
 export function validateTopic(t: Topic): string[] {
   const p: string[] = [];
   if (!t || typeof t !== "object") return ["пустая тема"];

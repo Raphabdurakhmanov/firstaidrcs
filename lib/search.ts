@@ -10,7 +10,7 @@ export function normalize(s: string) {
     .trim();
 }
 
-/** Грубая «основа» слова: отрезаем окончание, чтобы «сердце» находило «сердца». */
+// отрезаем окончание, чтобы "сердце" находило "сердца"
 export function stem(word: string) {
   if (word.length <= 4) return word;
   return word.slice(0, Math.max(4, word.length - 2));
@@ -28,7 +28,6 @@ export function topicText(t: Topic, lang: Lang) {
   return normalize(parts.join(" "));
 }
 
-/** Тема подходит, если каждое слово запроса встречается в её тексте (по основе). */
 export function matches(t: Topic, query: string, lang: Lang) {
   const words = normalize(query).split(" ").filter(Boolean);
   if (!words.length) return true;
@@ -36,7 +35,6 @@ export function matches(t: Topic, query: string, lang: Lang) {
   return words.every((w) => text.includes(stem(w)));
 }
 
-/** Заголовок важнее текста: сортируем найденное по совпадению в названии. */
 export function searchTopics(topics: Topic[], query: string, lang: Lang) {
   const q = normalize(query);
   const found = topics.filter((t) => matches(t, query, lang));
