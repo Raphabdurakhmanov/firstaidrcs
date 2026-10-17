@@ -7,7 +7,10 @@ import { supabaseConfigured } from "@/lib/supabase/env";
 import TopicCard from "@/components/TopicCard";
 import Widget from "@/components/Widget";
 import NewsCard from "@/components/NewsCard";
+import RcsNewsCard from "@/components/RcsNewsCard";
+import { getRcsNews } from "@/lib/rcs-news";
 import { l } from "@/lib/types";
+import { PHOTOS, unsplash } from "@/lib/photos";
 
 const QUICK = ["cpr-adult", "choking", "bleeding", "recovery", "heart-attack", "burns", "stroke", "seizures"];
 
@@ -23,7 +26,7 @@ const PRINCIPLES = [
 
 export default async function Home() {
   const { lang, t } = await getDict();
-  const [topics, session, news] = await Promise.all([getTopics(), getSession(), getNews(3)]);
+  const [topics, session, news, rcs] = await Promise.all([getTopics(), getSession(), getNews(3), getRcsNews(lang, 3)]);
   const studied = session ? await getProgress(session.user.id) : [];
   const done = new Set(studied);
   const quick = QUICK.map((s) => topics.find((x) => x.slug === s)).filter((x) => x !== undefined);
@@ -57,9 +60,9 @@ export default async function Home() {
           </div>
         </div>
         <div className="hero-visual">
-          <img className="main" src="/media/cpr-adult/1.webp" alt="" />
-          <img src="/media/fractures/1.webp" alt="" />
-          <img src="/media/recovery/1.webp" alt="" />
+          <img className="main" src={unsplash(PHOTOS.heroCpr, 1400)} alt="" />
+          <img src={unsplash(PHOTOS.heroKit, 700)} alt="" />
+          <img src={unsplash(PHOTOS.heroStreet, 700)} alt="" />
           <Link href="/tools#cpr" className="metric top" style={{ textDecoration: "none", color: "inherit" }}>
             <b>30:2</b>
             <span>CPR · 110/min</span>
@@ -171,7 +174,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {news.length > 0 && (
+      {(news.length > 0 || rcs.length > 0) && (
         <section className="section">
           <div className="wrap">
             <div className="section-head">
@@ -190,6 +193,9 @@ export default async function Home() {
               {news.map((n) => (
                 <NewsCard key={n.id} item={n} lang={lang} />
               ))}
+              {rcs.slice(0, Math.max(0, 3 - news.length)).map((n) => (
+                <RcsNewsCard key={n.id} item={n} lang={lang} readLabel={t.rcsRead} />
+              ))}
             </div>
           </div>
         </section>
@@ -205,19 +211,18 @@ export default async function Home() {
             <h2 className="h2">{session ? t.cab.progress : t.joinTitle}</h2>
             <p className="lead">{t.joinText}</p>
             <div className="row" style={{ marginTop: 24 }}>
+              <Link href="/join" className="btn">
+                {t.nav.join}
+              </Link>
               {session ? (
-                <Link href="/cabinet" className="btn">
-                  {t.cabinet} →
+                <Link href="/cabinet" className="btn ghost">
+                  {t.cabinet}
                 </Link>
               ) : supabaseConfigured() ? (
-                <Link href="/login" className="btn">
-                  {t.joinBtn} →
+                <Link href="/login" className="btn ghost">
+                  {t.login}
                 </Link>
-              ) : (
-                <Link href="/topics/movement" className="btn">
-                  {t.open} →
-                </Link>
-              )}
+              ) : null}
             </div>
           </div>
           <div className="grid c2" style={{ gap: 10 }}>

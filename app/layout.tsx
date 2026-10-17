@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Первая помощь — Красный Полумесяц Узбекистана",
     description: "Пошаговые протоколы, тренажёр СЛР, звонок в 103 и экзамен на трёх языках.",
-    images: ["/media/cpr-adult/1.webp"],
+    images: ["https://images.unsplash.com/photo-1622115585848-1d5b6e8af4e4?w=1200&h=630&fit=crop&q=70&sat=-45&con=8&blend=E5231F&blend-mode=softlight&blend-alpha=22"],
     type: "website",
   },
 };

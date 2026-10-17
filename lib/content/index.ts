@@ -35,11 +35,7 @@ export const BUILTIN_TOPICS: Topic[] = [...lifeTopics, ...injuryTopics, ...other
   .map((t) => ({ ...t, source: "builtin" as const, published: true }))
   .sort((a, b) => a.order - b.order);
 
-/**
- * Объединяет встроенные темы с темами из базы.
- * Тема из базы с тем же slug заменяет встроенную (так админ может исправить текст
- * или скрыть тему, сняв галочку «опубликовано»).
- */
+// тема из базы с тем же slug перекрывает встроенную
 export function mergeTopics(dbTopics: Topic[], includeHidden = false): Topic[] {
   const map = new Map<string, Topic>();
   for (const t of BUILTIN_TOPICS) map.set(t.slug, t);

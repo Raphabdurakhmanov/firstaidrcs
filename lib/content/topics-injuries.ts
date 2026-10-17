@@ -1,5 +1,6 @@
 import { l, type Topic } from "../types";
-import { cover, gal } from "./helpers";
+import { cover, gal, galLead } from "./helpers";
+import { PHOTOS, unsplash } from "../photos";
 
 export const injuryTopics: Topic[] = [
   {
@@ -14,8 +15,8 @@ export const injuryTopics: Topic[] = [
       "How to care for a small wound, the rules of bandaging and what to have at hand.",
       "Kichik yarani qanday parvarish qilish, bogʻlam qoʻyish qoidalari va qoʻl ostida nima boʻlishi kerak.",
     ),
-    cover: cover("wounds"),
-    gallery: gal("wounds", [
+    cover: unsplash(PHOTOS.bandage),
+    gallery: galLead("wounds", l("Бинтуйте от узкой части к широкой, каждый виток перекрывает предыдущий наполовину.", "Bandage from the narrow part to the wide part, each turn overlapping the last by half.", "Tor qismdan keng qismga bintlang, har bir oʻram oldingisini yarmigacha yopsin."), [
       l("Повязка на голову: бинт закрепляют кругом, а затем ходами через темя.", "Head bandage: secure with turns around the head, then over the crown.", "Bosh bogʻlami: bint bosh atrofida aylantirib, keyin tepa orqali mahkamlanadi."),
       l("Косынка: основание, вершина и два конца — универсальный перевязочный материал.", "Triangular bandage: base, point and two ends — a versatile dressing.", "Uchburchak roʻmol: asosi, uchi va ikki uchi — universal bogʻlov materiali."),
       l("Индивидуальный перевязочный пакет — стерильная подушечка с бинтом.", "Individual dressing pack — a sterile pad with a bandage.", "Individual bogʻlov paketi — bintli steril yostiqcha."),
@@ -447,8 +448,8 @@ export const injuryTopics: Topic[] = [
       "How to safely free a person from electric current and what to check afterwards.",
       "Odamni tokdan xavfsiz qanday ajratish va keyin nimani tekshirish kerak.",
     ),
-    cover: cover("electric"),
-    gallery: gal("electric", [
+    cover: unsplash(PHOTOS.powerLines),
+    gallery: galLead("electric", l("В бытовой сети: стоя на сухом, отодвиньте провод сухой деревянной палкой.", "Household supply: standing on something dry, push the wire away with a dry wooden stick.", "Maishiy tarmoqda: quruq joyda turib, simni quruq yogʻoch tayoq bilan surib qoʻying."), [
       l("Человек под действием тока — не прикасайтесь к нему.", "A person in contact with current — do not touch them.", "Tok taʼsiridagi odam — unga tegmang."),
       l("Сначала обесточьте: выньте вилку или отключите автомат.", "First cut the power: unplug or switch off at the breaker.", "Avval tokni uzing: vilkani sugʻuring yoki avtomatni oʻchiring."),
     ]),
@@ -545,8 +546,8 @@ export const injuryTopics: Topic[] = [
       "Four kinds of musculoskeletal injury, soft and rigid splints, and slings.",
       "Tayanch-harakat apparatining toʻrt xil jarohati, yumshoq va qattiq shinalar, roʻmol.",
     ),
-    cover: cover("fractures"),
-    gallery: gal("fractures", [
+    cover: unsplash(PHOTOS.sling),
+    gallery: galLead("fractures", l("Поддерживайте травмированную руку в том положении, в котором её нашли.", "Support the injured arm in the position you found it.", "Jarohatlangan qoʻlni topilgan holatida ushlab turing."), [
       l("Четыре вида травм: перелом, вывих, растяжение связок, растяжение мышц.", "Four injury types: fracture, dislocation, ligament sprain, muscle strain.", "Toʻrt xil jarohat: sinish, chiqish, payning choʻzilishi, mushakning choʻzilishi."),
       l("Мягкая шина: одеяло, полотенце, подушка, косынка.", "Soft splint: blanket, towel, pillow, triangular bandage.", "Yumshoq shina: adyol, sochiq, yostiq, roʻmol."),
       l("Жёсткая шина из подручного: доски, журналы, газеты.", "Improvised rigid splint: boards, magazines, newspapers.", "Qoʻl ostidagi narsadan qattiq shina: taxtalar, jurnallar, gazetalar."),
@@ -735,7 +736,8 @@ export const injuryTopics: Topic[] = [
       "The danger after release from under rubble and what you can do before rescuers arrive.",
       "Vayronalar ostidan chiqarilgandan keyingi xavf va qutqaruvchilar kelguncha nima qilish mumkin.",
     ),
-    cover: cover("crush"),
+    cover: unsplash(PHOTOS.rubble),
+    gallery: galLead("crush", l("После освобождения: обездвижить переломы и подготовить к переноске.", "After release: immobilise fractures and prepare for transport.", "Ozod qilingandan keyin: sinishlarni qimirlatmay mahkamlash va koʻchirishga tayyorlash.")),
     signs: [
       l(
         "Возникает после длительного сдавления мышц: при землетрясениях, обрушениях, авариях.",

@@ -1,5 +1,6 @@
 import { l, type Topic } from "../types";
-import { cover, gal } from "./helpers";
+import { cover, gal, galLead } from "./helpers";
+import { PHOTOS, unsplash } from "../photos";
 
 export const otherTopics: Topic[] = [
   {
@@ -100,7 +101,8 @@ export const otherTopics: Topic[] = [
       "Overheating in hot weather: signs, rapid cooling and calling an ambulance.",
       "Jaziramada tananing qizib ketishi: belgilari, tez sovutish va tez yordam chaqirish.",
     ),
-    cover: cover("heat"),
+    cover: unsplash(PHOTOS.heat),
+    gallery: galLead("heat", l("При перегреве сосуды кожи расширяются — так тело пытается отдать лишнее тепло.", "When overheated, skin vessels widen as the body tries to shed heat.", "Qizib ketganda teri tomirlari kengayadi — tana ortiqcha issiqlikni chiqarishga urinadi.")),
     signs: [
       l("Головная боль, головокружение, слабость, тошнота, рвота.", "Headache, dizziness, weakness, nausea, vomiting.", "Bosh ogʻrigʻi, bosh aylanishi, holsizlik, koʻngil aynishi, qusish."),
       l("Высокая температура тела, горячая красная кожа.", "High body temperature, hot red skin.", "Yuqori tana harorati, issiq qizil teri."),
@@ -177,8 +179,8 @@ export const otherTopics: Topic[] = [
       "How to rewarm correctly and why you must never rub with snow.",
       "Qanday toʻgʻri isitish va nima uchun qor bilan ishqalab boʻlmaydi.",
     ),
-    cover: cover("cold"),
-    gallery: gal("cold", [
+    cover: unsplash(PHOTOS.frost),
+    gallery: galLead("cold", l("На холоде сосуды кожи сужаются — с этого начинается обморожение.", "In the cold, skin vessels narrow — this is how frostbite begins.", "Sovuqda teri tomirlari torayadi — sovuq urishi shundan boshlanadi."), [
       l(
         "Повязка при обморожении пальцев: прослоите пальцы марлей, не сдавливая.",
         "Dressing frostbitten toes: separate them with gauze without squeezing.",
@@ -257,7 +259,8 @@ export const otherTopics: Topic[] = [
       "Poisoning by mouth, inhalation and through the skin: signs, care and prevention.",
       "Ogʻiz, nafas va teri orqali zaharlanish: belgilari, yordam va oldini olish.",
     ),
-    cover: cover("poisoning"),
+    cover: unsplash(PHOTOS.pills),
+    gallery: galLead("poisoning", l("Пищевое отравление: признаки, причины и профилактика.", "Food poisoning: symptoms, causes and prevention.", "Ovqatdan zaharlanish: belgilari, sabablari va oldini olish.")),
     signs: [
       l(
         "Тошнота, рвота, понос, боль в животе или груди, слюнотечение, потливость.",
@@ -347,8 +350,8 @@ export const otherTopics: Topic[] = [
       "How to tell a venomous snake, what to do after a bite and how not to miss an allergic reaction.",
       "Zaharli ilonni qanday farqlash, chaqqanda nima qilish va allergik reaksiyani qanday oʻtkazib yubormaslik.",
     ),
-    cover: cover("bites"),
-    gallery: gal("bites", [
+    cover: unsplash(PHOTOS.snake),
+    gallery: galLead("bites", l("Укус неядовитой и ядовитой змеи: у ядовитой видны следы двух зубов.", "Non-venomous vs venomous bite: a venomous snake leaves two fang marks.", "Zaharsiz va zaharli ilon chaqishi: zaharlida ikki tish izi koʻrinadi."), [
       l("Голова гадюки — треугольная, покрыта мелкими чешуйками.", "A viper’s head is triangular and covered with small scales.", "Qora ilon (gadyuka) boshi — uchburchak, mayda tangachalar bilan qoplangan."),
       l("Голова неядовитого ужа — овальная, с крупными щитками.", "A harmless grass snake’s head is oval with large plates.", "Zaharsiz suv ilonining boshi — oval, yirik qalqonchalar bilan."),
       l("След укуса: у ядовитой змеи видны две точки от зубов.", "Bite marks: a venomous snake leaves two fang punctures.", "Chaqish izi: zaharli ilonda tishdan ikkita nuqta koʻrinadi."),
@@ -428,8 +431,8 @@ export const otherTopics: Topic[] = [
       "When a casualty may be moved and how to do it safely for them and for you.",
       "Jabrlanuvchini qachon koʻchirish mumkin va buni u va oʻzingiz uchun qanday xavfsiz qilish kerak.",
     ),
-    cover: cover("moving"),
-    gallery: gal("moving", [
+    cover: unsplash(PHOTOS.stretcher),
+    gallery: galLead("moving", l("Импровизированные носилки из палок и одежды и переноска вдвоём на руках.", "Improvised stretchers from poles and clothing, and a two-person seat carry.", "Tayoq va kiyimdan qoʻlbola zambil va ikki kishi qoʻlda koʻtarishi."), [
       l("Поддержка вдвоём: человек опирается на плечи помогающих.", "Two-person support: the casualty leans on both helpers’ shoulders.", "Ikki kishi yordami: jabrlanuvchi yordamchilarning yelkasiga suyanadi."),
       l("«Замок» из четырёх рук для переноски сидя.", "A four-handed seat for carrying in a sitting position.", "Oʻtirgan holda koʻtarish uchun toʻrt qoʻldan «qulf»."),
       l("Переноска на сцепленных руках вдвоём.", "Two-person carry on linked arms.", "Ikki kishi bogʻlangan qoʻllarda koʻtarishi."),
@@ -510,7 +513,7 @@ export const otherTopics: Topic[] = [
       "Road safety, when to remove a person from a car and how to do it.",
       "Yoʻldagi xavfsizlik, odamni mashinadan qachon va qanday chiqarish.",
     ),
-    cover: cover("road"),
+    cover: unsplash(PHOTOS.carCrash),
     gallery: gal("road", [
       l("Ремень безопасности значительно снижает тяжесть травм.", "A seat belt greatly reduces the severity of injuries.", "Xavfsizlik kamari jarohatlar ogʻirligini sezilarli kamaytiradi."),
       l("Экстренное извлечение: руки под мышками, захват предплечья пострадавшего.", "Emergency extraction: arms under the armpits, gripping the casualty’s forearm.", "Favqulodda chiqarish: qoʻllar qoʻltiq ostidan, jabrlanuvchining bilagini ushlab."),
@@ -590,7 +593,8 @@ export const otherTopics: Topic[] = [
       "What to pack in a kit for home, car and events, and how to check it.",
       "Uy, mashina va tadbir uchun qutichaga nima solish va uni qanday tekshirish.",
     ),
-    cover: cover("kit"),
+    cover: unsplash(PHOTOS.kit),
+    gallery: galLead("kit", l("Стерильные перевязочные пакеты — основа любой аптечки.", "Sterile dressing packs are the core of any kit.", "Steril bogʻlov paketlari — har qanday qutichaning asosi.")),
     steps: [
       l("Перевязка: стерильные салфетки, бинты, эластичный бинт, пластыри, косынка.", "Dressings: sterile pads, bandages, an elastic bandage, plasters, a triangular bandage.", "Bogʻlov: steril salfetkalar, bintlar, elastik bint, plastirlar, uchburchak roʻmol."),
       l("Защита: одноразовые перчатки, маска для СЛР.", "Protection: disposable gloves, a CPR face shield.", "Himoya: bir martalik qoʻlqoplar, YOʻR niqobi."),
@@ -642,7 +646,10 @@ export const otherTopics: Topic[] = [
   {
     slug: "movement",
     cat: "volunteer",
-    icon: "☾",
+    icon: "crescent",
+    coverFit: "contain",
+    signsTitle: l("Из чего состоит Движение", "What the Movement is made of", "Harakat nimalardan iborat"),
+    stepsTitle: l("Семь основополагающих принципов", "The seven Fundamental Principles", "Yetti asosiy tamoyil"),
     order: 28,
     core: true,
     title: l("Движение Красного Креста и Красного Полумесяца", "The Red Cross and Red Crescent Movement", "Qizil Xoch va Qizil Yarim Oy Harakati"),

@@ -36,7 +36,7 @@ describe("встроенные темы", () => {
 
   it("у каждой картинки есть файл", () => {
     for (const t of BUILTIN_TOPICS)
-      for (const src of [t.cover, ...(t.gallery ?? []).map((g) => g.src)].filter(Boolean) as string[])
+      for (const src of ([t.cover, ...(t.gallery ?? []).map((g) => g.src)].filter(Boolean) as string[]).filter((u) => !u.startsWith("http")))
         expect(`${src}:${existsSync(join(publicDir, src))}`).toBe(`${src}:true`);
   });
 
@@ -47,6 +47,11 @@ describe("встроенные темы", () => {
 
   it("в каждой теме минимум 3 вопроса", () => {
     for (const t of BUILTIN_TOPICS) expect(t.quiz.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it("фото с Unsplash берутся с CDN и в единой обработке", () => {
+    for (const t of BUILTIN_TOPICS)
+      if (t.cover?.startsWith("http")) expect(`${t.slug}:${/^https:\/\/images\.unsplash\.com\/photo-[\w-]+\?.*blend=E5231F/.test(t.cover)}`).toBe(`${t.slug}:true`);
   });
 });
 

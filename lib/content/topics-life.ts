@@ -1,5 +1,6 @@
 import { l, type Topic } from "../types";
-import { cover, gal } from "./helpers";
+import { cover, gal, galLead } from "./helpers";
+import { PHOTOS, unsplash } from "../photos";
 
 export const lifeTopics: Topic[] = [
   {
@@ -15,8 +16,8 @@ export const lifeTopics: Topic[] = [
       "What first aid is, its goals and the four principles every response starts with.",
       "Birinchi yordam nima, uning maqsadlari va har qanday yordam boshlanadigan toʻrt tamoyil.",
     ),
-    cover: cover("basics"),
-    gallery: gal("basics", [
+    cover: unsplash(PHOTOS.basics),
+    gallery: galLead("basics", l("Принципы оказания первой помощи: осмотр места, первичный осмотр, вызов скорой и помощь по ситуации.", "Principles in action: scene check, primary survey, calling for help and care that fits the situation.", "Amalda tamoyillar: joyni koʻrish, birlamchi koʻrik, tez yordamni chaqirish va vaziyatga mos yordam."), [
       l(
         "Без кислорода мозг страдает уже через 4–6 минут, поэтому важна каждая минута.",
         "Without oxygen the brain is damaged within 4–6 minutes, so every minute counts.",
@@ -122,6 +123,7 @@ export const lifeTopics: Topic[] = [
     order: 2,
     core: true,
     widget: "call103",
+    cover: unsplash(PHOTOS.ambulance),
     title: l("Вызов скорой 103", "Calling an ambulance (103)", "Tez yordamni chaqirish (103)"),
     summary: l(
       "Когда звонить в 103, что сказать диспетчеру и когда нужны другие службы.",
@@ -374,8 +376,8 @@ export const lifeTopics: Topic[] = [
       "Cardiopulmonary resuscitation for cardiac arrest: compressions, breaths and an AED.",
       "Yurak toʻxtaganda yurak-oʻpka reanimatsiyasi: bosish, nafas berish va defibrillyator.",
     ),
-    cover: cover("cpr-adult"),
-    gallery: gal("cpr-adult", [
+    cover: unsplash(PHOTOS.cprAdult),
+    gallery: galLead("cpr-adult", l("Руки прямые, плечи над ладонями — давите весом тела, а не силой рук.", "Arms straight, shoulders over your hands — push with your body weight, not your arms.", "Qoʻllar toʻgʻri, yelkalar kaftlar ustida — qoʻl kuchi bilan emas, tana ogʻirligi bilan bosing."), [
       l(
         "Место надавливания — нижняя половина грудины, на линии между сосками.",
         "Compress the lower half of the breastbone, on the line between the nipples.",
@@ -509,7 +511,7 @@ export const lifeTopics: Topic[] = [
       "How resuscitating a child differs from an adult: 5 initial breaths, compression force and technique.",
       "Bolani reanimatsiya qilish kattalardan nimasi bilan farq qiladi: dastlabki 5 nafas, bosish kuchi va usuli.",
     ),
-    cover: cover("cpr-child"),
+    cover: unsplash(PHOTOS.cprChild),
     gallery: gal("cpr-child", [
       l(
         "Младенцу голову держат в нейтральном положении — не запрокидывают сильно.",
@@ -789,8 +791,8 @@ export const lifeTopics: Topic[] = [
       "How to recognise heart pain and what to do before the ambulance arrives.",
       "Yurak ogʻrigʻini qanday tanish va tez yordam kelguncha nima qilish kerak.",
     ),
-    cover: cover("heart-attack"),
-    gallery: gal("heart-attack", [
+    cover: unsplash(PHOTOS.chestPain),
+    gallery: galLead("heart-attack", l("Где болит при инфаркте: за грудиной, с отдачей в плечо, руку, шею и нижнюю челюсть.", "Where a heart attack hurts: behind the breastbone, spreading to the shoulder, arm, neck and jaw.", "Infarktda qayer ogʻriydi: toʻsh orqasi, yelka, qoʻl, boʻyin va jagʻga tarqaladi."), [
       l("Здоровая коронарная артерия снабжает сердце кровью.", "A healthy coronary artery supplies the heart with blood.", "Sogʻlom koronar arteriya yurakni qon bilan taʼminlaydi."),
       l(
         "Отложения на стенках артерии сужают просвет — сердцу не хватает кислорода.",
@@ -891,6 +893,7 @@ export const lifeTopics: Topic[] = [
     order: 8,
     core: false,
     widget: "fast",
+    cover: unsplash(PHOTOS.elderHands),
     title: l("Инсульт: тест «Улыбка — Рука — Речь»", "Stroke: the FAST test", "Insult: «Tabassum — Qoʻl — Nutq» testi"),
     summary: l(
       "Быстрая проверка на инсульт и почему важно засечь время начала симптомов.",
