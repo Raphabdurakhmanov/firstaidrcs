@@ -104,9 +104,11 @@ export default function Quiz(props: Props) {
 
   const q = questions[i];
   const answered = chosen !== null;
+  // на экзамене ответ не подсвечиваем, можно передумать до "Дальше"
+  const isExam = props.mode === "exam";
 
   const pick = (k: number) => {
-    if (answered) return;
+    if (answered && !isExam) return;
     setChosen(k);
   };
 
@@ -151,16 +153,16 @@ export default function Quiz(props: Props) {
         <h3>{q.q[lang]}</h3>
         <div className="answers">
           {q.options.map((o, k) => {
-            const cls = !answered ? "" : k === q.correctIndex ? "correct" : k === chosen ? "wrong" : "dim";
+            const cls = isExam ? (k === chosen ? "picked" : "") : !answered ? "" : k === q.correctIndex ? "correct" : k === chosen ? "wrong" : "dim";
             return (
-              <button key={k} className={cls} onClick={() => pick(k)} disabled={answered}>
+              <button key={k} className={cls} onClick={() => pick(k)} disabled={answered && !isExam}>
                 <span>{LETTERS[k]}</span>
                 {o[lang]}
               </button>
             );
           })}
         </div>
-        {answered && (
+        {answered && !isExam && (
           <div className={`feedback ${chosen === q.correctIndex ? "good" : "bad"}`} aria-live="polite">
             <b>{chosen === q.correctIndex ? `✓ ${t.quiz.correct}` : `✕ ${t.quiz.wrong}`}</b>
             <p>{q.e[lang]}</p>

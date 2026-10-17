@@ -42,7 +42,11 @@ export function buildTopicQuiz(topic: Topic, rng: Rng = Math.random): PreparedQu
   );
 }
 
-export function buildExam(topics: Topic[], count = 15, rng: Rng = Math.random): PreparedQuestion[] {
+// экзамен строгий: 30 вопросов, ошибиться можно максимум 4 раза
+export const EXAM_SIZE = 30;
+export const EXAM_PASS = 26;
+
+export function buildExam(topics: Topic[], count = EXAM_SIZE, rng: Rng = Math.random): PreparedQuestion[] {
   const pools = shuffle(
     topics.filter((t) => t.quiz.length > 0).map((t) => ({ topic: t, idx: shuffle(t.quiz.map((_, i) => i), rng) })),
     rng,
@@ -64,8 +68,6 @@ export function buildExam(topics: Topic[], count = 15, rng: Rng = Math.random): 
   return shuffle(picked, rng);
 }
 
-export const EXAM_SIZE = 15;
-export const EXAM_PASS = 12;
 
 export function totalQuestions(topics: Topic[]) {
   return topics.reduce((n, t) => n + t.quiz.length, 0);

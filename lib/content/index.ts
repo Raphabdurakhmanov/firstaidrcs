@@ -2,6 +2,7 @@ import { l, type CategoryId, type L, type Topic } from "../types";
 import { lifeTopics } from "./topics-life";
 import { injuryTopics } from "./topics-injuries";
 import { otherTopics } from "./topics-other";
+import { HARD_QUESTIONS } from "./hard-questions";
 
 export const CATEGORIES: { id: CategoryId; title: L; text: L }[] = [
   {
@@ -32,7 +33,7 @@ export const CATEGORIES: { id: CategoryId; title: L; text: L }[] = [
 ];
 
 export const BUILTIN_TOPICS: Topic[] = [...lifeTopics, ...injuryTopics, ...otherTopics]
-  .map((t) => ({ ...t, source: "builtin" as const, published: true }))
+  .map((t) => ({ ...t, quiz: [...t.quiz, ...(HARD_QUESTIONS[t.slug] ?? [])], source: "builtin" as const, published: true }))
   .sort((a, b) => a.order - b.order);
 
 // тема из базы с тем же slug перекрывает встроенную

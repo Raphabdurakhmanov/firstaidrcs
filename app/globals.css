@@ -463,6 +463,8 @@ body::after {
 .answers button { background: rgba(255, 255, 255, 0.7); border-color: rgba(17, 18, 20, 0.08); }
 .answers button.correct { background: rgba(234, 249, 242, 0.92); }
 .answers button.wrong { background: rgba(255, 240, 239, 0.92); }
+.answers button.picked { background: #fff; border-color: var(--d, #111214); box-shadow: inset 0 0 0 1px var(--d, #111214); }
+.answers button.picked span { background: var(--d, #111214); color: #fff; }
 .field input, .field select, .field textarea { background: rgba(255, 255, 255, 0.8); border-color: rgba(17, 18, 20, 0.12); }
 .topic-media, .topic-cover { background: rgba(255, 255, 255, 0.6); }
 .gallery button, .gallery figcaption { background: transparent; }

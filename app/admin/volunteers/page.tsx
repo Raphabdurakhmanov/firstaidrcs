@@ -2,7 +2,7 @@ import { getDict } from "@/lib/i18n/server";
 import { createClient } from "@/lib/supabase/server";
 import { getSession, getTopics, type Profile, type Role } from "@/lib/data";
 import { setRole } from "@/app/actions";
-import { EXAM_PASS } from "@/lib/quiz";
+import { EXAM_PASS, EXAM_SIZE } from "@/lib/quiz";
 import { fmtDate } from "@/components/NewsCard";
 
 export default async function Volunteers({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
@@ -61,7 +61,7 @@ export default async function Volunteers({ searchParams }: { searchParams: Promi
                   <td>
                     {coreCount.get(p.id) ?? 0}/{core.size}
                   </td>
-                  <td style={{ color: b !== undefined && b >= EXAM_PASS ? "var(--ok)" : undefined, fontWeight: 800 }}>{b !== undefined ? `${b}/15` : "—"}</td>
+                  <td style={{ color: b !== undefined && b >= EXAM_PASS ? "var(--ok)" : undefined, fontWeight: 800 }}>{b !== undefined ? `${b}/${EXAM_SIZE}` : "—"}</td>
                   <td>
                     {isAdmin && p.id !== session?.user.id ? (
                       <form action={setRole} className="row" style={{ gap: 6 }}>

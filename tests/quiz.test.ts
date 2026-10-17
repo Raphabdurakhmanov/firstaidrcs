@@ -29,7 +29,7 @@ describe("shuffle", () => {
 });
 
 describe("buildExam", () => {
-  it("15 разных вопросов без повторов", () => {
+  it("30 разных вопросов без повторов", () => {
     for (let seed = 1; seed <= 50; seed++) {
       const exam = buildExam(BUILTIN_TOPICS, EXAM_SIZE, seeded(seed));
       expect(exam).toHaveLength(EXAM_SIZE);
@@ -37,16 +37,17 @@ describe("buildExam", () => {
     }
   });
 
-  it("при достаточном числе тем берёт не больше одного вопроса из темы", () => {
+  it("сначала берёт по вопросу из каждой темы", () => {
     const exam = buildExam(BUILTIN_TOPICS, EXAM_SIZE, seeded(7));
-    expect(new Set(exam.map((q) => q.topicSlug)).size).toBe(EXAM_SIZE);
+    expect(new Set(exam.map((q) => q.topicSlug)).size).toBe(BUILTIN_TOPICS.length);
   });
 
   it("если тем мало — добирает вторые вопросы, но не повторяет их", () => {
     const few = BUILTIN_TOPICS.slice(0, 4);
+    const all = few.reduce((n, t) => n + t.quiz.length, 0);
     const exam = buildExam(few, EXAM_SIZE, seeded(3));
-    expect(exam).toHaveLength(12);
-    expect(new Set(exam.map((q) => q.id)).size).toBe(12);
+    expect(exam).toHaveLength(Math.min(all, EXAM_SIZE));
+    expect(new Set(exam.map((q) => q.id)).size).toBe(exam.length);
   });
 
   it("правильный индекс указывает на правильный ответ", () => {
