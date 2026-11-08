@@ -31,11 +31,19 @@ type TopicRow = { slug: string; data: Omit<Topic, "slug">; published: boolean };
 
 const rowToTopic = (r: TopicRow): Topic => ({ ...r.data, slug: r.slug, published: r.published, source: "db" });
 
+// если supabase недоступен, auth-клиент долго повторяет запросы и vercel убивает страницу через 25с.
+// поэтому ждём максимум несколько секунд и считаем что пользователь не вошёл
+const AUTH_TIMEOUT_MS = 4000;
+
 export const getSession = cache(async () => {
   const supabase = await createClient();
   if (!supabase) return null;
-  const { data } = await supabase.auth.getUser();
-  if (!data.user) return null;
+  const res = await Promise.race([
+    supabase.auth.getUser().catch(() => null),
+    new Promise<null>((resolve) => setTimeout(() => resolve(null), AUTH_TIMEOUT_MS)),
+  ]);
+  const data = res?.data;
+  if (!data?.user) return null;
   const { data: profile } = await supabase.from("profiles").select("*").eq("id", data.user.id).maybeSingle();
   return { user: data.user, profile: (profile as Profile | null) ?? null };
 });
