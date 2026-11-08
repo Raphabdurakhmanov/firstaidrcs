@@ -8,7 +8,8 @@ export async function createClient() {
   return createServerClient(SUPABASE_URL, SUPABASE_KEY, {
     // если supabase не отвечает (например проект на паузе) — не ждём бесконечно
     global: {
-      fetch: (input, init) => fetch(input, { ...init, signal: init?.signal ?? AbortSignal.timeout(8000) }),
+      fetch: (input: RequestInfo | URL, init?: RequestInit) =>
+        fetch(input, { ...init, signal: init?.signal ?? AbortSignal.timeout(8000) }),
     },
     cookies: {
       getAll() {
