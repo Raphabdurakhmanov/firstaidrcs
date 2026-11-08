@@ -6,6 +6,10 @@ export async function createClient() {
   if (!supabaseConfigured()) return null;
   const cookieStore = await cookies();
   return createServerClient(SUPABASE_URL, SUPABASE_KEY, {
+    // если supabase не отвечает (например проект на паузе) — не ждём бесконечно
+    global: {
+      fetch: (input, init) => fetch(input, { ...init, signal: init?.signal ?? AbortSignal.timeout(8000) }),
+    },
     cookies: {
       getAll() {
         return cookieStore.getAll();
